@@ -1,0 +1,50 @@
+#
+# Conditional build:
+%bcond_with	tests	# perform "make test" (needs DISPLAY)
+#
+%include	/usr/lib/rpm/macros.perl
+%define		pdir	Gtk2
+%define		pnam	Ex-Carp
+Summary:	GTK+ friendly die() and warn() functions
+Name:		perl-%{pdir}-%{pnam}
+Version:	0.01
+Release:	0.1
+License:	the same as Perl
+Group:		Development/Languages/Perl
+Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	a9e6de1c2e54c504d19b6b0f5faa3f5b
+BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+%endif
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+GTK+ friendly die() and warn() functions.
+
+%prep
+%setup -q -n %{pdir}-%{pnam}-%{version}
+
+%build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+
+%{__make}
+
+%{?with_tests:%{__make} test}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} pure_install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc README
+%{perl_vendorlib}/Gtk2/Ex/Carp.pm
+%{_mandir}/man3/*
