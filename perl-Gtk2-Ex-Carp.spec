@@ -6,22 +6,25 @@
 %define		pdir	Gtk2
 %define		pnam	Ex-Carp
 Summary:	GTK+ friendly die() and warn() functions
+Summary(pl):	Funkcje die() i warn() przyjazne dla GTK+
 Name:		perl-%{pdir}-%{pnam}
 Version:	0.01
 Release:	0.1
-License:	the same as Perl
+# same as perl
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	a9e6de1c2e54c504d19b6b0f5faa3f5b
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with tests}
-%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GTK+ friendly die() and warn() functions.
+
+%description -l pl
+Funkcje die() i warn() przyjazne dla GTK+.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
