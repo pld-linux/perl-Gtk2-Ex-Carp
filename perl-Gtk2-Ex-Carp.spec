@@ -9,7 +9,7 @@ Summary:	GTK+ friendly die() and warn() functions
 Summary(pl):	Funkcje die() i warn() przyjazne dla GTK+
 Name:		perl-%{pdir}-%{pnam}
 Version:	0.01
-Release:	0.1
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -17,6 +17,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 # Source0-md5:	a9e6de1c2e54c504d19b6b0f5faa3f5b
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+Requires:	perl-Gtk2 >= 1.101-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
