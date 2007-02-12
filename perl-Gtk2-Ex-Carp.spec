@@ -6,7 +6,7 @@
 %define		pdir	Gtk2
 %define		pnam	Ex-Carp
 Summary:	GTK+ friendly die() and warn() functions
-Summary(pl):	Funkcje die() i warn() przyjazne dla GTK+
+Summary(pl.UTF-8):   Funkcje die() i warn() przyjazne dla GTK+
 Name:		perl-%{pdir}-%{pnam}
 Version:	0.01
 Release:	1
@@ -24,7 +24,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GTK+ friendly die() and warn() functions.
 
-%description -l pl
+%description -l pl.UTF-8
 Funkcje die() i warn() przyjazne dla GTK+.
 
 %prep
