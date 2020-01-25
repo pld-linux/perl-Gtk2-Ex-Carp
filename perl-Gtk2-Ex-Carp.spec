@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_with	tests	# perform "make test" (needs DISPLAY)
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Gtk2
 %define		pnam	Ex-Carp
 Summary:	GTK+ friendly die() and warn() functions
